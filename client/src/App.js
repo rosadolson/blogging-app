@@ -1,11 +1,47 @@
-import React from 'react'
+import React, {Component} from 'react'
+import NavBar from './NavBar'
+import Home from './Home'
+import PostList from './PostList'
+import $ from 'jquery'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
-const App = () => {
-  return (
-    <div>
-      <h2>it's working!</h2>
-    </div>
-  )
+class App extends Component {
+  state = {
+    posts: undefined
+  }
+
+  componentDidMount () {
+    this.loadPostsFromServer()
+  }
+
+  loadPostsFromServer = () => {
+    $.ajax({
+      url: '/api/posts',
+      method: 'GET'
+    }).done((response) => {
+      console.log('It Works!', response)
+      this.setState({ posts: response.data })
+    })
+  }
+
+  render () {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          <Route exact path='/' component={Home} />
+          {
+            this.state.posts
+              ? <Route path='/posts' render={() => <PostList posts={this.state.posts} />} />
+              : 'There are no blog posts yet.'
+          }
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App
