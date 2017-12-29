@@ -5,8 +5,8 @@ const Post = require('../models/Post')
 
 Router.route('/api/posts/:postId/comments')
   .post((req, res) => {
-    const { name, icon, message } = req.body
-    const newComment = { name, icon, message }
+    const { username, icon, message } = req.body
+    const newComment = { username, icon, message }
     Comment(newComment).save((err, savedComment) => {
       if (err) {
         res.json({ error: err })
@@ -29,7 +29,39 @@ Router.route('/api/posts/:postId/comments')
     })
   })
 
-Router.route('/api/comments/:commentId')
+Router.route('/api/posts/:postId/comments')
+  .get((req, res) => {
+    Comment.find((err, comments) => {
+      if (err) {
+        res.json({ error: err })
+      } else {
+        res.json({ msg: 'SUCCESS', data: comments })
+      }
+    })
+  })
+
+Router.route('/api/posts/:postId/:commentId')
+  .put((req, res) => {
+    const commentId = req.params.commentId
+    Comment.findById({ _id: commentId }, (err, comment) => {
+      if (err) {
+        res.json({ error: err })
+      } else {
+        comment.username = req.body.username ? req.body.username : comment.username
+        comment.icon = req.body.icon ? req.body.icon : comment.icon
+        comment.message = req.body.message ? req.body.message : comment.message
+        comment.save((err, updatedComment) => {
+          if (err) {
+            res.json({ error: err })
+          } else {
+            res.json({ msg: `UPDATED: ${commentId}`, data: updatedComment })
+          }
+        })
+      }
+    })
+  })
+
+Router.route('/api/posts/:postId/:commentId')
   .delete((req, res) => {
     const commentId = req.params.commentId
     Comment.remove({ _id: commentId }, (err, comment) => {
