@@ -27,6 +27,15 @@ class App extends Component {
     })
   }
 
+  deletePost = (post) => {
+    $.ajax({
+      url: `/api/posts/${post._id}`,
+      method: 'DELETE'
+    }).done((response) => {
+      this.loadPostsFromServer()
+    })
+  }
+
   render () {
     return (
       <Router>
@@ -35,7 +44,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           {
             this.state.posts
-              ? <Route path='/posts' render={() => <PostList posts={this.state.posts} />} />
+              ? <Route path='/posts' render={() => <PostList posts={this.state.posts} deletePost={this.deletePost} />} />
               : 'There are no blog posts yet.'
           }
         </div>
