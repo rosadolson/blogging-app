@@ -10,7 +10,6 @@ const PostCard = ({ post, deletePost }) => {
       <p>{post.author}</p>
       <button onClick={() => deletePost(post)}>DELETE</button>
       <Link to={`/post/${post._id}`}>View Post</Link>
-      <Link to={`/edit-post/${post._id}`}>Edit Post</Link>
     </div>
   )
 }

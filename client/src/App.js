@@ -4,6 +4,7 @@ import Home from './Home'
 import PostList from './PostList'
 import ViewPostContainer from './ViewPostContainer'
 import CreatePostContainer from './CreatePostContainer'
+import EditPostContainer from './EditPostContainer'
 import $ from 'jquery'
 import {
   BrowserRouter as Router,
@@ -47,12 +48,17 @@ class App extends Component {
           {
             this.state.posts
               ? <Route path='/posts' render={() => <PostList posts={this.state.posts} deletePost={this.deletePost} />} />
-              : 'There are no blog posts yet.'
+              : 'No Posts Available'
           }
           {
             this.state.posts
               ? <Route path='/create-post' render={() => <CreatePostContainer posts={this.state.posts} loadPostsFromServer={this.loadPostsFromServer} />} />
-              : 'No Posts Yet'
+              : 'No Posts Available'
+          }
+          {
+            this.state.posts
+              ? <Route path='/edit-post/:postId' render={() => <EditPostContainer posts={this.state.posts} />} />
+              : 'No Posts Available'
           }
           <Route exact path='/post/:postId' render={() => <ViewPostContainer />} />
         </div>
