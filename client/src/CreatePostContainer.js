@@ -16,8 +16,7 @@ class CreatePostContainer extends Component {
 
   static propTypes = {
     history: PropTypes.object.isRequired,
-    loadPostsFromServer: PropTypes.func.isRequired,
-    posts: PropTypes.array.isRequired
+    loadPostsFromServer: PropTypes.func.isRequired
   }
 
   onChangeHandler = (e) => this.setState({ [e.target.id]: e.target.value })
@@ -25,14 +24,14 @@ class CreatePostContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const {img, title, author, message} = this.state
-    const post = {img, title, author, message}
+    const newPost = {img, title, author, message}
     $.ajax({
       url: '/api/posts',
       method: 'POST',
-      data: post
+      data: newPost
     }).done((response) => {
       this.props.loadPostsFromServer()
-      this.props.history.push('/heroes')
+      this.props.history.push('/posts')
     })
   }
 
@@ -46,7 +45,6 @@ class CreatePostContainer extends Component {
           <CreatePostForm
             onChangeHandler={this.onChangeHandler}
             handleSubmit={this.handleSubmit}
-            posts={this.props.posts}
           />
         </div>
       </div>

@@ -45,6 +45,7 @@ class App extends Component {
         <div>
           <NavBar />
           <Route exact path='/' component={Home} />
+          <Route exact path='/post/:postId' render={() => <ViewPostContainer deletePost={this.deletePost} />} />
           {
             this.state.posts
               ? <Route path='/posts' render={() => <PostList posts={this.state.posts} deletePost={this.deletePost} />} />
@@ -60,7 +61,6 @@ class App extends Component {
               ? <Route path='/edit-post/:postId' render={() => <EditPostContainer posts={this.state.posts} />} />
               : 'No Posts Available'
           }
-          <Route exact path='/post/:postId' render={() => <ViewPostContainer />} />
         </div>
       </Router>
     )

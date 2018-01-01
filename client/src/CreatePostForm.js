@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CreatePostForm = ({ posts, onChangeHandler, handleSubmit }) => {
+const CreatePostForm = ({ onChangeHandler, handleSubmit }) => {
   return (
     <div>
       <form>
@@ -29,8 +29,7 @@ const CreatePostForm = ({ posts, onChangeHandler, handleSubmit }) => {
 
 CreatePostForm.propTypes = {
   onChangeHandler: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired
+  handleSubmit: PropTypes.func.isRequired
 }
 
 export default CreatePostForm
