@@ -8,9 +8,8 @@ const PostCard = ({ post, deletePost }) => {
       <img alt='' src={post.img} />
       <p>{post.title}</p>
       <p>{post.author}</p>
-      <p>{post.message}</p>
       <button onClick={() => deletePost(post)}>DELETE</button>
-      <Link to={`/posts/${post._id}`}>View Post</Link>
+      <Link to={`/post/${post._id}`}>View Post</Link>
       <Link to={`/edit-post/${post._id}`}>Edit Post</Link>
     </div>
   )

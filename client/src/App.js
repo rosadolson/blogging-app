@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import NavBar from './NavBar'
 import Home from './Home'
 import PostList from './PostList'
-// import ViewPostContainer from './ViewPostContainer'
+import ViewPostContainer from './ViewPostContainer'
 import CreatePostContainer from './CreatePostContainer'
 import $ from 'jquery'
 import {
@@ -54,7 +54,7 @@ class App extends Component {
               ? <Route path='/create-post' render={() => <CreatePostContainer posts={this.state.posts} loadPostsFromServer={this.loadPostsFromServer} />} />
               : 'No Posts Yet'
           }
-          {/* <Route exact path='/posts/:postId' render={() => <ViewPostContainer />} /> */}
+          <Route exact path='/post/:postId' render={() => <ViewPostContainer />} />
         </div>
       </Router>
     )
