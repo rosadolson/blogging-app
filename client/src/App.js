@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import NavBar from './NavBar'
 import Home from './Home'
 import PostList from './PostList'
-import ViewPostContainer from './ViewPostContainer'
+// import ViewPostContainer from './ViewPostContainer'
+import CreatePostContainer from './CreatePostContainer'
 import $ from 'jquery'
 import {
   BrowserRouter as Router,
@@ -48,7 +49,12 @@ class App extends Component {
               ? <Route path='/posts' render={() => <PostList posts={this.state.posts} deletePost={this.deletePost} />} />
               : 'There are no blog posts yet.'
           }
-          <Route exact path='/posts/:postId' render={() => <ViewPostContainer />} />
+          {
+            this.state.posts
+              ? <Route path='/create-post' render={() => <CreatePostContainer posts={this.state.posts} loadPostsFromServer={this.loadPostsFromServer} />} />
+              : 'No Posts Yet'
+          }
+          {/* <Route exact path='/posts/:postId' render={() => <ViewPostContainer />} /> */}
         </div>
       </Router>
     )
