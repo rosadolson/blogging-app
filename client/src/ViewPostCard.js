@@ -14,12 +14,14 @@ const ViewPostCard = ({ post, comments, username, icon, message, onChangeHandler
       <Link to={`/edit-post/${post._id}`}>Edit Post</Link>
       <div>
         <h2>Comments:</h2>
-        <CommentList comments={comments} />
+        <CommentList
+          comments={comments}
+          deleteComment={deleteComment}
+        />
         <CommentForm
           username={username}
           icon={icon}
           message={message}
-          deleteComment={deleteComment}
           handleCommentSubmit={handleCommentSubmit}
           onChangeHandler={onChangeHandler}
         />

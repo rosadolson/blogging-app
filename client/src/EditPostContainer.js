@@ -49,7 +49,7 @@ class EditPostContainer extends Component {
       method: 'PUT',
       data: post
     }).done((response) => {
-      console.log('PUT is working!', response)
+      // console.log('PUT is working!', response)
       alert(`${response.data.title} has been updated.`)
       this.props.history.push(`/post/${response.data._id}`)
     })
