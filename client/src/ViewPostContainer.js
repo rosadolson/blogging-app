@@ -37,12 +37,13 @@ class ViewPostContainer extends Component {
     })
   }
 
-  deleteComment = (commentId) => {
+  deleteComment = (comment) => {
     $.ajax({
-      url: `/api/posts/:postId/${commentId}`,
+      url: `/api/posts/${comment._id}`,
       method: 'DELETE'
     }).done((response) => {
-      this.loadPost()
+      console.log('Working!', response)
+      this.loadPost(this.props.match.params.postId)
     })
   }
 

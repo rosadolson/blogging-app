@@ -40,7 +40,7 @@ Router.route('/api/posts/:postId/comments')
     })
   })
 
-Router.route('/api/posts/:postId/:commentId')
+Router.route('/api/posts/:commentId')
   .put((req, res) => {
     const commentId = req.params.commentId
     Comment.findById({ _id: commentId }, (err, comment) => {
@@ -61,7 +61,7 @@ Router.route('/api/posts/:postId/:commentId')
     })
   })
 
-Router.route('/api/posts/:postId/:commentId')
+Router.route('/api/posts/:commentId')
   .delete((req, res) => {
     const commentId = req.params.commentId
     Comment.remove({ _id: commentId }, (err, comment) => {
