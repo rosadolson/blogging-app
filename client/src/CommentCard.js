@@ -7,7 +7,7 @@ const CommentCard = ({ comment, deleteComment }) => {
       <img alt='' src={comment.icon} />
       <p>{comment.username}</p>
       <p>{comment.message}</p>
-      <button onClick={deleteComment(comment)}>DELETE</button>
+      <button onClick={() => deleteComment(comment._id)}>DELETE</button>
     </div>
   )
 }
