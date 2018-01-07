@@ -28,7 +28,7 @@ class ViewPostContainer extends Component {
       url: `/api/posts/${id}`,
       method: 'GET'
     }).done((response) => {
-      console.log('View Post', response)
+      // console.log('View Post', response)
       this.setState({
         post: response.data,
         comments: response.data.comments,
@@ -37,13 +37,15 @@ class ViewPostContainer extends Component {
     })
   }
 
+  onChangeHandler = (e) => this.setState({ [e.target.id]: e.target.value })
+
   deleteComment = (id) => {
-    console.log(id)
+    // console.log(id)
     $.ajax({
       url: `/api/posts/comments/${id}`,
       method: 'DELETE'
     }).done((response) => {
-      console.log(response)
+      // console.log(response)
       this.loadPost(this.props.match.params.postId)
     })
   }
@@ -61,8 +63,6 @@ class ViewPostContainer extends Component {
       this.setState({ username: '', icon: '', message: '' })
     })
   }
-
-  onChangeHandler = (e) => this.setState({ [e.target.id]: e.target.value })
 
   render () {
     const {post, comments, username, icon, message} = this.state

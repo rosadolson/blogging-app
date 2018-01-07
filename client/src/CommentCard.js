@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from './Components/Button'
 
 const CommentCard = ({ comment, deleteComment }) => {
   return (
@@ -7,7 +8,7 @@ const CommentCard = ({ comment, deleteComment }) => {
       <img alt='' src={comment.icon} />
       <p>{comment.username}</p>
       <p>{comment.message}</p>
-      <button onClick={() => deleteComment(comment._id)}>DELETE</button>
+      <Button handleClick={() => deleteComment(comment._id)}>DELETE</Button>
     </div>
   )
 }

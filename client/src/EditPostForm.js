@@ -1,26 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from './Components/Button'
+import Input from './Components/Input'
+import TextArea from './Components/TextArea'
 
 const EditPostForm = ({ img, title, author, message, onChangeHandler, submitPostToServer }) => {
   return (
     <form>
-      <div>
-        <label>Image:</label>
-        <input id='img' type='text' value={img} onChange={onChangeHandler} />
-      </div>
-      <div>
-        <label>Title:</label>
-        <input id='title' type='text' value={title} onChange={onChangeHandler} />
-      </div>
-      <div>
-        <label>Author:</label>
-        <input id='author' type='text' value={author} onChange={onChangeHandler} />
-      </div>
-      <div>
-        <label>Message:</label>
-        <input id='message' type='text' value={message} onChange={onChangeHandler} />
-      </div>
-      <button onClick={submitPostToServer}>SUBMIT</button>
+      <Input
+        label={'Enter Image URL Here:'}
+        id={'img'}
+        type={'text'}
+        value={img}
+        handleChange={onChangeHandler}
+      />
+      <Input
+        label={'Enter Title Here:'}
+        id={'title'}
+        type={'text'}
+        value={title}
+        handleChange={onChangeHandler}
+      />
+      <Input
+        label={"Enter Author's Name Here:"}
+        id={'author'}
+        type={'text'}
+        value={author}
+        handleChange={onChangeHandler}
+      />
+      <TextArea
+        label={'Type Blog Post Here:'}
+        id={'message'}
+        type={'text'}
+        value={message}
+        handleChange={onChangeHandler}
+        rows={'5'}
+        cols={'40'}
+      />
+      <Button handleClick={submitPostToServer}>SUBMIT</Button>
     </form>
   )
 }

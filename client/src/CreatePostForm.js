@@ -1,27 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from './Components/Button'
+import Input from './Components/Input'
+import TextArea from './Components/TextArea'
 
 const CreatePostForm = ({ onChangeHandler, handleSubmit }) => {
   return (
     <div>
       <form>
-        <div>
-          <label>Image: </label>
-          <input id='img' type='text' placeholder='Enter Image URL Here' onChange={onChangeHandler} />
-        </div>
-        <div>
-          <label>Title: </label>
-          <input id='title' type='text' placeholder='Enter Title Here' onChange={onChangeHandler} />
-        </div>
-        <div>
-          <label>Author: </label>
-          <input id='author' type='text' placeholder='Enter Author Name Here' onChange={onChangeHandler} />
-        </div>
-        <div>
-          <label>Message: </label>
-          <input id='message' type='text' placeholder='Type Blog Post Here' onChange={onChangeHandler} />
-        </div>
-        <button onClick={handleSubmit}>SUBMIT</button>
+        <Input
+          label={'Enter Image URL Here:'}
+          placeHolder={'Image URL'}
+          id={'img'}
+          type={'text'}
+          handleChange={onChangeHandler}
+        />
+        <Input
+          label={'Enter Title Here:'}
+          placeHolder={'Title'}
+          id={'title'}
+          type={'text'}
+          handleChange={onChangeHandler}
+        />
+        <Input
+          label={"Enter Author's Name Here:"}
+          placeHolder={'Author'}
+          id={'author'}
+          type={'text'}
+          handleChange={onChangeHandler}
+        />
+        <TextArea
+          label={'Blog Post:'}
+          placeHolder={'Type Message / Blog Post Here'}
+          id={'message'}
+          type={'text'}
+          handleChange={onChangeHandler}
+          rows={'5'}
+          cols={'40'}
+        />
+        <Button handleClick={handleSubmit}>SUBMIT</Button>
       </form>
     </div>
   )
