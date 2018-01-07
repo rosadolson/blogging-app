@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from './Components/Button'
-import Input from './Components/Input'
-import TextArea from './Components/TextArea'
+import Button from './Button'
+import Input from './Input'
+import TextArea from './TextArea'
 
 const CommentForm = ({ username, icon, message, handleCommentSubmit, onChangeHandler }) => {
   return (

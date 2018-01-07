@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import NavBar from './NavBar'
+import NavBar from './Components/NavBar'
 import Home from './Home'
 import PostList from './PostList'
 import ViewPostContainer from './ViewPostContainer'

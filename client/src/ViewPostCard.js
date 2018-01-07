@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import CommentList from './CommentList'
-import CommentForm from './CommentForm'
+import CommentList from './Components/CommentList'
+import CommentForm from './Components/CommentForm'
 
 const ViewPostCard = ({ post, comments, username, icon, message, onChangeHandler, handleCommentSubmit, deleteComment }) => {
   return (
