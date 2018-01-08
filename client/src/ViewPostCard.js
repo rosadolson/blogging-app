@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 const ViewPostCard = ({ post, comments, username, icon, message, onChangeHandler, handleCommentSubmit, deleteComment }) => {
   return (
     <div>
-      <PostInfo post={post} />
+      <PostInfo post={post} message={post.message} />
       <Link to={`/edit-post/${post._id}`}>Edit Post</Link>
       <div>
         <h2>Comments:</h2>

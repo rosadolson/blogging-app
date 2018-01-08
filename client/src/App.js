@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from './Components/NavBar'
 import Home from './Home'
+import Footer from './Components/Footer'
 import PostList from './PostList'
 import ViewPostContainer from './ViewPostContainer'
 import CreatePostContainer from './CreatePostContainer'
@@ -61,6 +62,7 @@ class App extends Component {
               ? <Route path='/edit-post/:postId' render={() => <EditPostContainer posts={this.state.posts} />} />
               : 'No Posts Available'
           }
+          <Footer />
         </div>
       </Router>
     )
