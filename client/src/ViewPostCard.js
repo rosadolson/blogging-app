@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import PostInfo from './Components/PostInfo'
 import CommentList from './Components/CommentList'
 import CommentForm from './Components/CommentForm'
+import {Link} from 'react-router-dom'
 
 const ViewPostCard = ({ post, comments, username, icon, message, onChangeHandler, handleCommentSubmit, deleteComment }) => {
   return (
     <div>
-      <img alt='' src={post.img} />
-      <p>{post.title}</p>
-      <p>{post.author}</p>
-      <p>{post.message}</p>
+      <PostInfo post={post} />
       <Link to={`/edit-post/${post._id}`}>Edit Post</Link>
       <div>
         <h2>Comments:</h2>
