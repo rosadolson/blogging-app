@@ -7,6 +7,7 @@ const styles = {
   container: {
     backgroundColor: 'black',
     position: 'fixed',
+    zIndex: '3',
     top: 0,
     width: '101%',
     marginLeft: -10,
@@ -18,8 +19,8 @@ const styles = {
     color: 'white',
     fontSize: 11,
     textDecoration: 'none',
-    paddingLeft: '1.5%',
-    paddingRight: '1.5%'
+    paddingLeft: '2%',
+    paddingRight: '3%'
   },
   nav: {
     display: 'flex',

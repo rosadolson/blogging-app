@@ -2,9 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import CommentCard from './CommentCard'
 
+const styles = {
+  container: {
+    width: '85%',
+    display: 'flex',
+    flexDirection: 'column'
+  }
+}
+
 const CommentList = ({ comments, deleteComment }) => {
   return (
-    <div>
+    <div style={styles.container}>
       {
         comments && comments.length > 0
           ? comments.map((comment, index) => {

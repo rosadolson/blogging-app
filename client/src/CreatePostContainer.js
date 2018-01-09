@@ -39,9 +39,6 @@ class CreatePostContainer extends Component {
     return (
       <div>
         <div>
-          <h2>Create A Post.</h2>
-        </div>
-        <div>
           <CreatePostForm
             onChangeHandler={this.onChangeHandler}
             handleSubmit={this.handleSubmit}

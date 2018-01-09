@@ -4,10 +4,48 @@ import Button from './Components/Button'
 import Input from './Components/Input'
 import TextArea from './Components/TextArea'
 
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#ecf0f1',
+    marginLeft: 40,
+    marginRight: 40,
+    marginTop: 20,
+    marginBottom: 20,
+    padding: '5%'
+  },
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  textContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: 30
+  },
+  header: {
+    fontFamily: 'Playfair Display, serif',
+    fontSize: 60,
+    marginBottom: 0
+  },
+  subHeader: {
+    fontFamily: 'Muli, sans-serif',
+    fontSize: 12,
+    marginTop: 0
+  }
+}
+
 const CreatePostForm = ({ onChangeHandler, handleSubmit }) => {
   return (
-    <div>
-      <form>
+    <div style={styles.container}>
+      <div style={styles.textContainer}>
+        <p style={styles.header}>WRITE A POST</p>
+        <p style={styles.subHeader}>FILL IN ALL THE BLANKS AND HIT SUBMIT</p>
+      </div>
+      <form style={styles.fromContainer}>
         <Input
           label={'Enter Image URL Here:'}
           placeHolder={'Image URL'}
@@ -35,8 +73,8 @@ const CreatePostForm = ({ onChangeHandler, handleSubmit }) => {
           id={'message'}
           type={'text'}
           handleChange={onChangeHandler}
-          rows={'5'}
-          cols={'40'}
+          rows={'15'}
+          cols={'37'}
         />
         <Button handleClick={handleSubmit}>SUBMIT</Button>
       </form>

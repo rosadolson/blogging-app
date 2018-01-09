@@ -4,34 +4,48 @@ import Button from './Button'
 import Input from './Input'
 import TextArea from './TextArea'
 
+const styles = {
+  form: {
+    backgroundColor: '#ecf0f1',
+    margin: 5,
+    width: '100%',
+    padding: '5%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  inputContainer: {
+    display: 'flex'
+  }
+}
+
 const CommentForm = ({ username, icon, message, handleCommentSubmit, onChangeHandler }) => {
   return (
-    <form>
-      <Input
-        label={'Enter Image URL (Icon):'}
-        placeHolder={'Icon URL'}
-        id={'icon'}
-        type={'text'}
-        value={icon}
-        handleChange={onChangeHandler}
-      />
-      <Input
-        label={'Enter Username:'}
-        placeHolder={'Username'}
-        id={'username'}
-        type={'text'}
-        value={username}
-        handleChange={onChangeHandler}
-      />
+    <form style={styles.form}>
+      <div style={styles.inputContainer}>
+        <Input
+          placeHolder={'NAME'}
+          id={'username'}
+          type={'text'}
+          value={username}
+          handleChange={onChangeHandler}
+        />
+        <Input
+          placeHolder={'ICON URL'}
+          id={'icon'}
+          type={'text'}
+          value={icon}
+          handleChange={onChangeHandler}
+        />
+      </div>
       <TextArea
-        label={'Enter A Comment:'}
-        placeHolder={'Type Comment Here'}
+        placeHolder={'What did you think?'}
         id={'message'}
         type={'text'}
         value={message}
         handleChange={onChangeHandler}
-        rows={'5'}
-        cols={'40'}
+        rows={'2'}
+        cols={'82'}
       />
       <Button handleClick={handleCommentSubmit} type='button'>COMMENT</Button>
     </form>

@@ -1,17 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({ label, placeHolder, id, type, value, handleChange, rows, cols }) => {
+const styles = {
+  input: {
+    fontFamily: 'Muli, sans-serif',
+    fontSize: 10,
+    padding: 8,
+    margin: 5,
+    border: 'none'
+  }
+}
+
+const Input = ({ placeHolder, id, type, value, handleChange, rows, cols }) => {
   return (
     <div>
-      <label>{label}</label>
-      <textarea placeholder={placeHolder} id={id} type={type} value={value} onChange={handleChange} rows={rows} cols={cols} />
+      <textarea style={styles.input} placeholder={placeHolder} id={id} type={type} value={value} onChange={handleChange} rows={rows} cols={cols} />
     </div>
   )
 }
 
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
   placeHolder: PropTypes.string,
   id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
