@@ -16,7 +16,7 @@ const styles = {
   link: {
     fontFamily: 'Muli, sans-serif',
     color: 'white',
-    fontSize: '11px',
+    fontSize: 11,
     textDecoration: 'none',
     paddingLeft: '1.5%',
     paddingRight: '1.5%'
@@ -35,7 +35,7 @@ const NavBar = () => {
         <span style={styles.link}> ● </span>
         <Link style={styles.link} to='/'> H O M E </Link>
         <Link style={styles.link} to='/posts'> B L O G </Link>
-        <Link style={styles.link} to='/create-post'> P O S T </Link>
+        <Link style={styles.link} to='/create-post'> + P O S T </Link>
         <span style={styles.link}> ● </span>
       </nav>
     </div>
